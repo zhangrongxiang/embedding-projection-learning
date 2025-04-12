@@ -59,7 +59,7 @@ def chat_with_model(pth_path):
 
 if __name__ == "__main__":
     # 示例权重路径（替换为你的实际路径）
-    pth_path = "./output/pretrain_512_with_nonlinear_g.pth"
+    pth_path = "/root/autodl-tmp/zrx/minimind/exp/nonlinear_yes_saveint_10000_20250412_105842/pretrain_512_initial_epoch0_step9999.pth"
     
     # 开始对话
     try:
