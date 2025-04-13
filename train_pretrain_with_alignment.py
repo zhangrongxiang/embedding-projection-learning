@@ -125,6 +125,7 @@ def train_epoch(epoch, wandb_run, model, train_loader, optimizer, scaler, args, 
                 f'step_time:{step_time:.3f}s '
                 f'gpu_mem:{gpu_mem:.2f}MB '
                 f'params:{params:.2f}M'
+                f'global_step:{global_step} '
             )
             if wandb_run:
                 wandb_run.log({
