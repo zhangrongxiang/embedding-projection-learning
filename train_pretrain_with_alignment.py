@@ -38,7 +38,7 @@ def convert_torch2transformers(torch_path, transformers_path):
 
     LMConfig.register_for_auto_class()
     MiniMindLM.register_for_auto_class("AutoModelForCausalLM")
-    lm_config = LMConfig(dim=512, n_layers=8, max_seq_len=512)
+    lm_config = LMConfig(dim=args.dim, n_layers=args.n_layers, max_seq_len=8192)
     lm_model = MiniMindLM(lm_config)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     state_dict = torch.load(torch_path, map_location=device)
@@ -266,9 +266,8 @@ if __name__ == "__main__":
     parser.add_argument('--max_seq_len', default=512, type=int)
     parser.add_argument('--use_moe', default=False, type=bool)
     parser.add_argument("--data_path", type=str, default="./dataset/pretrain_hq.jsonl")
-    parser.add_argument("--pretrained_path", type=str, default="./model/pretrained/pretrain_512.pth")
-    parser.add_argument("--g_embedding_path_linear", type=str, default="_linear_aligned_g_embedding.pth")
-    parser.add_argument("--g_embedding_path_nonlinear", type=str, default="_nonlinear_aligned_g_embedding.pth")
+    parser.add_argument("--g_embedding_path_linear", type=str, default="/root/autodl-tmp/zrx/minimind/mapping_results/nonlinear_no_epochs_1000_batch_1024_lr_0.001000_20250415_184242/linear_aligned_g_embedding.pth")
+    parser.add_argument("--g_embedding_path_nonlinear", type=str, default="./mapping_results/nonlinear_yes_epochs_1000_batch_1024_lr_0.001000_20250415_184840/nonlinear_aligned_g_embedding.pth")
     parser.add_argument("--nonlinear", action="store_true", help="Run with nonlinear embedding")
     args = parser.parse_args()
 
@@ -319,6 +318,7 @@ if __name__ == "__main__":
     g_embedding_path = args.g_embedding_path_nonlinear if args.nonlinear else args.g_embedding_path_linear
     stage_name = "nonlinear_embedding" if args.nonlinear else "linear_embedding"
     Logger(f"Replacing with {'Nonlinear' if args.nonlinear else 'Linear'} g(c) and freezing embeddings...")
+    model_initial, tokenizer = init_model(lm_config, args, freeze_embedding=False)
     model_replaced = replace_and_freeze_embeddings(model_initial, g_embedding_path)
     
     moe_path = '_moe' if args.use_moe else ''
