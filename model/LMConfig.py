@@ -15,7 +15,7 @@ class LMConfig(PretrainedConfig):
             hidden_dim: int = None,
             multiple_of: int = 64,
             norm_eps: float = 1e-5,
-            max_seq_len: int = 8192,
+            max_seq_len: int = 512,
             rope_theta: int = 1e6,
             dropout: float = 0.0,
             flash_attn: bool = True,
