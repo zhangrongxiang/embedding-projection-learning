@@ -5,7 +5,7 @@ from model.model import MiniMindLM, LMConfig  # 假设模型定义在 model/mode
 # 设置设备
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-def load_model_and_tokenizer(pth_path, dim=768, n_layers=16, max_seq_len=512, use_moe=False):
+def load_model_and_tokenizer(pth_path, dim=512, n_layers=8, max_seq_len=512, use_moe=False):
     """加载 .pth 格式的模型和分词器"""
     # 初始化分词器
     tokenizer = AutoTokenizer.from_pretrained('./model/minimind_tokenizer')
@@ -59,7 +59,7 @@ def chat_with_model(pth_path):
 
 if __name__ == "__main__":
     # 示例权重路径（替换为你的实际路径）
-    pth_path = "/root/autodl-tmp/zrx/minimind/exp/nonlinear_no_saveint_1000_20250415_075630/pretrain_768_linear_embedding_epoch0_step40999.pth"
+    pth_path = "/root/autodl-tmp/zrx/minimind/exp/nonlinear_no_saveint_2000_20250417_212755/pretrain_512_initial_epoch0_step43999.pth"
     
     # 开始对话
     try:

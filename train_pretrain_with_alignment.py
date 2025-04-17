@@ -264,7 +264,7 @@ if __name__ == "__main__":
     parser.add_argument('--max_seq_len', default=512, type=int)
     parser.add_argument('--use_moe', default=False, type=bool)
     parser.add_argument("--data_path", type=str, default="./dataset/pretrain_hq.jsonl")
-    parser.add_argument("--g_embedding_path_linear", type=str, default="/root/autodl-tmp/zrx/minimind/mapping_exp/qwen25_nonlinear_no_epochs_3000_batch_1024_lr_0.001000_20250416_235407/linear_aligned_g_embedding.pth")
+    parser.add_argument("--g_embedding_path_linear", type=str, default="/root/autodl-tmp/zrx/minimind/mapexp/qwen25_nonlinear_no_epochs_1000_batch_1024_lr_0.001000_20250417_212030/linear_aligned_g_embedding.pth")
     parser.add_argument("--g_embedding_path_nonlinear", type=str, default="/root/autodl-tmp/zrx/minimind/mapping_results/nonlinear_yes_epochs_5000_batch_512_lr_0.000100_20250416_092458/nonlinear_aligned_g_embedding.pth")
     parser.add_argument("--nonlinear", action="store_true", help="Run with nonlinear embedding")
     args = parser.parse_args()

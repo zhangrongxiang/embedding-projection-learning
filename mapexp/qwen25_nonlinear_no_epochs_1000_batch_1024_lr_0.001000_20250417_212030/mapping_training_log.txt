@@ -1,0 +1,29 @@
+Training Mapping with Linear Mapping
+Qwen2.5 Model: Qwen/Qwen2.5-3B-Instruct, Epochs: 1000, Batch Size: 1024, LR: 0.001
+
+Qwen2.5 embedding shape (f(c)): torch.Size([151936, 2048])
+MiniMind embedding shape (g(c)): torch.Size([50257, 512])
+Shared tokens: 6075 (12.09% of MiniMind vocab)
+Epoch 0, Avg Loss: 1.695424, Epoch Time: 0.32s, CPU Memory: 1843.85MB, GPU Memory: 4079.90MB
+Epoch 100, Avg Loss: 0.616961, Epoch Time: 0.03s, CPU Memory: 1844.09MB, GPU Memory: 4079.90MB
+Epoch 200, Avg Loss: 0.614843, Epoch Time: 0.03s, CPU Memory: 1844.09MB, GPU Memory: 4079.90MB
+Epoch 300, Avg Loss: 0.614593, Epoch Time: 0.03s, CPU Memory: 1844.09MB, GPU Memory: 4079.90MB
+Epoch 400, Avg Loss: 0.614467, Epoch Time: 0.03s, CPU Memory: 1844.10MB, GPU Memory: 4079.90MB
+Epoch 500, Avg Loss: 0.614588, Epoch Time: 0.03s, CPU Memory: 1844.10MB, GPU Memory: 4079.90MB
+Epoch 600, Avg Loss: 0.614443, Epoch Time: 0.03s, CPU Memory: 1844.10MB, GPU Memory: 4079.90MB
+Epoch 700, Avg Loss: 0.614500, Epoch Time: 0.03s, CPU Memory: 1844.10MB, GPU Memory: 4079.90MB
+Epoch 800, Avg Loss: 0.614481, Epoch Time: 0.03s, CPU Memory: 1844.10MB, GPU Memory: 4079.90MB
+Epoch 900, Avg Loss: 0.614400, Epoch Time: 0.03s, CPU Memory: 1844.16MB, GPU Memory: 4079.90MB
+Epoch 999, Avg Loss: 0.614353, Epoch Time: 0.03s, CPU Memory: 1844.16MB, GPU Memory: 4079.90MB
+
+Final Results:
+Shared Tokens: 6075
+Final Loss: 0.613073
+Average Distance per Token: 0.776114
+Max Distance per Token: 1.054992
+Percentage of Tokens with Distance < 1.0: 99.39%
+Total Training Time: 33.90s
+Average Time per Epoch: 0.03s
+
+Saved T to mapexp/qwen25_nonlinear_no_epochs_1000_batch_1024_lr_0.001000_20250417_212030/mapping_T_linear.pth
+Saved g_embedding to mapexp/qwen25_nonlinear_no_epochs_1000_batch_1024_lr_0.001000_20250417_212030/linear_aligned_g_embedding.pth

@@ -1,0 +1,8 @@
+Training Mapping with Linear Mapping
+Qwen2.5 Model: Qwen/Qwen2.5-3B-Instruct, Epochs: 1000, Batch Size: 1024, LR: 0.001
+
+Qwen2.5 embedding shape (f(c)): torch.Size([151936, 2048])
+MiniMind embedding shape (g(c)): torch.Size([50257, 512])
+Token mapping created with 50257 entries
+Unmapped tokens: 43887 (87.33%)
+Sample unmapped tokens: [(0, 'Empty or invalid token'), (1, 'Empty or invalid token'), (2, 'Empty or invalid token'), (200, 'Empty or invalid token'), (201, 'Empty or invalid token')]
